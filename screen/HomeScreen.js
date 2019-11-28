@@ -31,6 +31,7 @@ export class HomeScreen extends React.PureComponent {
     //   .catch(error => {
     //     console.error(error);
     //   });
+    // ToDo ERROR ON NEXT LINE
     this.props.getItems();
   }
 
