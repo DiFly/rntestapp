@@ -11,6 +11,10 @@ export class DetailsScreen extends React.Component {
     const {navigation} = this.props;
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+
+
+
+
         <Text>Details Screen</Text>
         <Text>
           itemId: {JSON.stringify(navigation.getParam('itemId', 'NO-ID'))}
