@@ -18,6 +18,7 @@ export const getItems = () => {
       .get(API_URL)
       .then(res => {
         dispatch(fetchDataFulfilled(res.data.results));
+        console.log('res', res);
       })
       .catch(err => dispatch(fetchDataRejected(err)));
   };

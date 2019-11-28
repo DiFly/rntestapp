@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {getItems} from '../redux/store';
 import {Card} from '../components/Card';
 
-export class HomeScreen extends React.Component {
+export class HomeScreen extends React.PureComponent {
   static navigationOptions = {
     title: 'Home',
   };
@@ -45,7 +45,7 @@ export class HomeScreen extends React.Component {
 
     const {items, loading} = this.props;
 
-    if (!loading) {
+    if (loading) {
       return (
         <View style={{flex: 1, padding: 20}}>
           <ActivityIndicator />
