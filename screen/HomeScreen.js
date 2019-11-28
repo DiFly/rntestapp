@@ -12,29 +12,40 @@ export class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {isLoading: true};
+    // this.state = {isLoading: true};
   }
 
   componentDidMount() {
-    const API_URL =
-      'https://api.unsplash.com/photos/?client_id=cf49c08b444ff4cb9e4d126b7e9f7513ba1ee58de7906e4360afc1a33d1bf4c0';
-
-    return fetch(API_URL)
-      .then(response => response.json())
-      .then(responseJson => {
-        this.setState({
-            isLoading: false,
-            dataSource: responseJson,
-        }, function(){
-        });
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    // const API_URL =
+    //   'https://api.unsplash.com/photos/?client_id=cf49c08b444ff4cb9e4d126b7e9f7513ba1ee58de7906e4360afc1a33d1bf4c0';
+    //
+    // return fetch(API_URL)
+    //   .then(response => response.json())
+    //   .then(responseJson => {
+    //     this.setState({
+    //         isLoading: false,
+    //         dataSource: responseJson,
+    //     }, function(){
+    //     });
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //   });
+    this.props.getItems();
   }
 
   render() {
-    if (this.state.isLoading){
+    // if (this.state.isLoading){
+    //   return (
+    //     <View style={{flex: 1, padding: 20}}>
+    //       <ActivityIndicator />
+    //     </View>
+    //   );
+    // }
+
+    const {items, loading} = this.props;
+
+    if (!loading) {
       return (
         <View style={{flex: 1, padding: 20}}>
           <ActivityIndicator />
@@ -59,7 +70,8 @@ export class HomeScreen extends React.Component {
         />
 
         <FlatList
-          data={this.state.dataSource}
+          // data={this.state.dataSource}
+          data={this.state.items}
           renderItem={({item}) =>
             <Card navigation={this.props.navigation} item={item} />}
           keyExtractor={({id}, index) => id}
