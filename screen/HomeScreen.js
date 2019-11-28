@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Text, View, ActivityIndicator, FlatList} from 'react-native';
+import {View, ActivityIndicator, FlatList, StyleSheet} from 'react-native';
 import {Card} from '../components/Card';
 
 export class HomeScreen extends React.Component {
@@ -40,28 +40,37 @@ export class HomeScreen extends React.Component {
     }
 
     return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Button
-          title="Go to Details ->"
-          onPress={() =>
-            this.props.navigation.navigate('Details', {
-              itemId: 86,
-              otherParam: 'anything you want here',
-            })
-          }
-        />
-        <Button
-          title="Go to Details... again"
-          onPress={() => this.props.navigation.push('Details')}
-        />
+      <View style={style.backGray}>
+        {/*<Button*/}
+        {/*  title="Go to Details ->"*/}
+        {/*  onPress={() =>*/}
+        {/*    this.props.navigation.navigate('Details', {*/}
+        {/*      itemId: 86,*/}
+        {/*      otherParam: 'anything you want here',*/}
+        {/*    })*/}
+        {/*  }*/}
+        {/*/>*/}
+        {/*<Button*/}
+        {/*  title="Go to Details... again"*/}
+        {/*  onPress={() => this.props.navigation.push('Details')}*/}
+        {/*/>*/}
 
         <FlatList
           data={this.state.dataSource}
           renderItem={({item}) =>
-            <Card navigation={this.props.navigation} item={item} />}
+            <Card navigation={this.props.navigation} item={item} style={style.mb5} /> }
           keyExtractor={({id}, index) => id}
         />
       </View>
     );
   }
 }
+
+const style = StyleSheet.create({
+  backGray: {
+    backgroundColor: 'gray',
+  },
+  mb5: {
+    marginBottom: '15px',
+  },
+});
