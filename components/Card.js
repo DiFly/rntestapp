@@ -1,16 +1,22 @@
 import React, {Component} from 'react';
-import {View, Text, Image} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 
 export class Card extends Component {
   render() {
     let pic = {
-      uri:
-        'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg',
-    }
+      uri: this.props.item.urls.small,
+    };
     return (
       <View>
-        <Image source={pic} style={{width: 193, height: 110}} />
-        <Text>Simple Text</Text>
+        <TouchableOpacity
+          underlayColor="white"
+          onPress={() =>
+            this.props.navigation.navigate('Details', this.props.item)
+          }>
+          <Image source={pic} style={{width: 193, height: 110}} />
+          <Text>{this.props.item.user.name}</Text>
+          <Text>{this.props.item.alt_description}</Text>
+        </TouchableOpacity>
       </View>
     );
   }

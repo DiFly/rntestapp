@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, Button, View} from 'react-native';
+import {Text, Button, View, Image} from 'react-native';
 
 export class DetailsScreen extends React.Component {
   static navigationOptions = ({navigation}) => {
@@ -9,13 +9,17 @@ export class DetailsScreen extends React.Component {
   };
   render() {
     const {navigation} = this.props;
+    let pic = {
+      uri: navigation.getParam('urls').full,
+    }
+
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-
-
-
-
         <Text>Details Screen</Text>
+        <Image source={pic} style={{minWidth: 400, minHeight: 400}} />
+        <Text>
+          url to image: {navigation.getParam('urls').full.toString()}
+        </Text>
         <Text>
           itemId: {JSON.stringify(navigation.getParam('itemId', 'NO-ID'))}
         </Text>

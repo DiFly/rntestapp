@@ -57,7 +57,9 @@ export class HomeScreen extends React.Component {
 
         <FlatList
           data={this.state.dataSource}
-          renderItem={({item}) => <Card item={item} />}
+          renderItem={({item}) =>
+            <Card navigation={this.props.navigation} item={item} />}
+          keyExtractor={({id}, index) => id}
         />
       </View>
     );
