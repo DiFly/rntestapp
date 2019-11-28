@@ -83,7 +83,7 @@ export class HomeScreen extends React.PureComponent {
 }
 
 const mapStateToProps = state => ({
-  items: state.items,
+  items: state.items | [],
   loading: state.loading,
 });
 
@@ -91,7 +91,7 @@ const mapDispatchToProps = {
   getItems,
 };
 
-export default connect(
+connect(
   mapStateToProps,
   mapDispatchToProps,
 )(HomeScreen);

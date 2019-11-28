@@ -1,6 +1,7 @@
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import axios from 'axios';
+import superagent from 'superagent';
 
 import reducer from './reducer';
 import {fetchData, fetchDataFulfilled, fetchDataRejected} from './actions';
@@ -23,3 +24,13 @@ export const getItems = () => {
       .catch(err => dispatch(fetchDataRejected(err)));
   };
 };
+
+export const getItems2 = () => {
+  return dispatch => {
+    dispatch(fetchData(true));
+    superagent.get(API_URL).end((err, res) => {
+      if (err) dispatch(fetchDataRejected(err));
+      dispatch(fetchDataFulfilled(res.body.results));
+    });
+  };
+}
