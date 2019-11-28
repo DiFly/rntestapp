@@ -5,6 +5,9 @@ import {DetailsScreen} from './screen/DetailsScreen';
 import {HomeScreen} from './screen/HomeScreen';
 import {SuperDetailsScreen} from './screen/SuperDetailsScreen';
 
+import {Provider} from 'react-redux';
+import store from './redux/store';
+
 const AppNavigator = createStackNavigator(
   {
     Home: HomeScreen,
@@ -22,6 +25,10 @@ const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends React.Component {
   render() {
-    return <AppContainer />;
+    return (
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    );
   }
 }

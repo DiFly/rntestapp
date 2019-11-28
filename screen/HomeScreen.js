@@ -1,5 +1,8 @@
 import React from 'react';
 import {Button, Text, View, ActivityIndicator, FlatList} from 'react-native';
+import {connect} from 'react-redux';
+
+import {getItems} from '../redux/store';
 import {Card} from '../components/Card';
 
 export class HomeScreen extends React.Component {
@@ -65,3 +68,17 @@ export class HomeScreen extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  items: state.items,
+  loading: state.loading,
+});
+
+const mapDispatchToProps = {
+  getItems,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(HomeScreen);
