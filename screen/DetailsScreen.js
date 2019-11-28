@@ -10,15 +10,17 @@ export class DetailsScreen extends React.Component {
   render() {
     const {navigation} = this.props;
     let pic = {
-      uri: navigation.getParam('urls').full,
+      uri: navigation.getParam('urls')
+        ? navigation.getParam('urls').full.toString()
+        : 'https://sterlingcomputers.com/wp-content/themes/Sterling/images/no-image-found-360x260.png',
     }
 
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Details Screen</Text>
-        <Image source={pic} style={{minWidth: 400, minHeight: 400}} />
+        <Image source={pic} style={{minWidth: 200, minHeight: 200}} />
         <Text>
-          url to image: {navigation.getParam('urls').full.toString()}
+          url to image: {navigation.getParam('urls') ? navigation.getParam('urls').full.toString() : 'NO IMG URL'}
         </Text>
         <Text>
           itemId: {JSON.stringify(navigation.getParam('itemId', 'NO-ID'))}
