@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
+import {Card} from '../components/Card';
 
 export class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -8,6 +9,7 @@ export class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <Card />
         <Text>Home Screen</Text>
         <Button
           title="Go to Details ->"
