@@ -45,7 +45,7 @@ export class HomeScreen extends React.PureComponent {
 
     const {items, loading} = this.props;
 
-    if (loading) {
+    if (!loading) {
       return (
         <View style={{flex: 1, padding: 20}}>
           <ActivityIndicator />

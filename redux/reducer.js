@@ -1,12 +1,10 @@
+import {GET_ITEMS, GET_ITEMS_FULFILLED, GET_ITEMS_REJECTED} from './const';
+
 const initialState = {
   items: [],
   loading: true,
   errorMessage: '',
-}
-
-const GET_ITEMS = 'GET_ITEMS';
-const GET_ITEMS_FULFILLED = 'GET_ITEMS_FULFILLED';
-const GET_ITEMS_REJECTED = 'GET_ITEMS_REJECTED';
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -22,26 +20,3 @@ const reducer = (state = initialState, action) => {
 };
 
 export default reducer;
-
-export const fetchData = (bool) => {
-  return {
-    type: GET_ITEMS,
-    payload: bool,
-  };
-}
-
-export const fetchDataFulfilled = (data) => {
-  return {
-    type: GET_ITEMS_FULFILLED,
-    payload: data,
-    loading: false,
-  };
-}
-
-export const fetchDataRejected = (error) => {
-  return {
-    type: GET_ITEMS_REJECTED,
-    payload: error,
-    loading: false,
-  };
-}
