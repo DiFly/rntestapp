@@ -13,7 +13,7 @@ const reducer = (state = initialState, action) => {
     case GET_ITEMS:
       return {...state, loading: action.payload};
     case GET_ITEMS_FULFILLED:
-      return {...state, people: action.payload, loading: action.loading};
+      return {...state, items: action.payload, loading: action.loading};
     case GET_ITEMS_REJECTED:
       return {...state, errorMessage: action.payload, loading: action.loading};
     default:
@@ -22,3 +22,26 @@ const reducer = (state = initialState, action) => {
 };
 
 export default reducer;
+
+export const fetchData = (bool) => {
+  return {
+    type: GET_ITEMS,
+    payload: bool,
+  };
+}
+
+export const fetchDataFulfilled = (data) => {
+  return {
+    type: GET_ITEMS_FULFILLED,
+    payload: data,
+    loading: false,
+  };
+}
+
+export const fetchDataRejected = (error) => {
+  return {
+    type: GET_ITEMS_REJECTED,
+    payload: error,
+    loading: false,
+  };
+}
