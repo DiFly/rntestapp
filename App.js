@@ -3,7 +3,6 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {DetailsScreen} from './screen/DetailsScreen';
 import {HomeScreen} from './screen/HomeScreen';
-import {SuperDetailsScreen} from './screen/SuperDetailsScreen';
 
 import {Provider} from 'react-redux';
 import store from './redux/store';
@@ -14,7 +13,6 @@ const AppNavigator = createStackNavigator(
     Details: {
       screen: DetailsScreen,
     },
-    SuperDetails: SuperDetailsScreen,
   },
   {
     initialRouteName: 'Home',
