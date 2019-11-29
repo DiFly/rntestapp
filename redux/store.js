@@ -18,7 +18,7 @@ export const getItems = () => {
     axios
       .get(API_URL)
       .then(res => {
-        dispatch(fetchDataFulfilled(res.data.results));
+        dispatch(fetchDataFulfilled(res.data));
         console.log('res', res);
       })
       .catch(err => dispatch(fetchDataRejected(err)));
@@ -30,7 +30,7 @@ export const getItems2 = () => {
     dispatch(fetchData(true));
     superagent.get(API_URL).end((err, res) => {
       if (err) dispatch(fetchDataRejected(err));
-      dispatch(fetchDataFulfilled(res.body.results));
+      dispatch(fetchDataFulfilled(res.body));
     });
   };
 }
