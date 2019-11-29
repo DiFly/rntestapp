@@ -14,8 +14,8 @@ export class Card extends Component {
             this.props.navigation.navigate('Details', this.props.item)
           }>
           <Image source={pic} style={{flex: 1, height: 150}} />
-          <Text>{this.props.item.user.name}</Text>
-          <Text>{this.props.item.alt_description}</Text>
+          <Text style={{padding: 10}}>{this.props.item.user.name}</Text>
+          <Text style={{padding: 10}}>{this.props.item.alt_description}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -32,10 +32,17 @@ const styles = StyleSheet.create({
   },
   backWhite: {
     backgroundColor: 'white',
-    marginBottom: 10,
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: '#ddd',
+    borderBottomWidth: 0,
     shadowColor: '#000',
-    shadowOffset: {width: 10, height: 20},
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.8,
     shadowRadius: 2,
+    elevation: 1,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 10,
   },
 });
