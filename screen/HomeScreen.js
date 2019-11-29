@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  View,
-  ActivityIndicator,
-  FlatList,
-  StyleSheet,
-} from 'react-native';
+import {View, ActivityIndicator, FlatList, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 
 import {getItems} from '../redux/store';
@@ -21,7 +15,6 @@ class HomeScreenView extends React.PureComponent {
   }
 
   componentDidMount() {
-    // ToDo ERROR ON NEXT LINE
     this.props.getItems();
   }
 
